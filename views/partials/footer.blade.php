@@ -19,6 +19,6 @@
     </div>
 
     @yield('footer')
-    <strong>Copyright © {{ date('Y')}} <a href="//imaginacolombia.com.com" target="_blank">Imagina Admin</a></strong>
+    <strong>Copyright © {{ date('Y')}} <a href="https://www.imaginacolombia.com.com" target="_blank">Imagina Admin</a></strong>
 </footer>
 
