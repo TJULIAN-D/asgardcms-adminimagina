@@ -1,7 +1,7 @@
 <!-- Header Navbar: style can be found in header.less -->
 <nav class="navbar navbar-static-top" role="navigation">
     <!-- Sidebar toggle button-->
-    <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button" style="margin: 0;">
+    <a href="#" class="navbar-btn sidebar-toggle" data-toggle="push-menu" role="button" style="margin: 0;">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -13,7 +13,12 @@
             <?php if (is_module_enabled('Notification')): ?>
             @include('notification::partials.notifications')
             <?php endif; ?>
-            <li><a href="{{ URL::to('/') }}" target="_blank"><i class="fa fa-eye"></i> {{trans('core::core.general.view website')}}</a></li>
+            <li>
+                <a href="" class="publicUrl" style="display: none">
+                    <i class="fa fa-eye"></i> {{ trans('page::pages.view-page') }}
+                </a>
+            </li>
+            <li><a href="{{ url('/') }}"><i class="fa fa-eye"></i> {{ trans('core::core.general.view website') }}</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-flag"></i>
@@ -38,7 +43,7 @@
                     <i class="glyphicon glyphicon-user"></i>
                     <span>
                         <?php if ($user->present()->fullname() != ' '): ?>
-                            <?= $user->present()->fullName(); ?>
+                            {{ $user->present()->fullName() }}
                         <?php else: ?>
                             <em>{{trans('core::core.general.complete your profile')}}.</em>
                         <?php endif; ?>
@@ -51,7 +56,7 @@
                         <img src="{{ $user->present()->gravatar() }}" class="img-circle" alt="User Image" />
                         <p>
                             <?php if ($user->present()->fullname() != ' '): ?>
-                                <?= $user->present()->fullname(); ?>
+                                {{ $user->present()->fullname() }}
                             <?php else: ?>
                                 <em>{{trans('core::core.general.complete your profile')}}.</em>
                             <?php endif; ?>
